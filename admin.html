@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>S Floristry Admin</title>
+<style>
+body{font-family:Arial;background:#F8F5F2;margin:0;padding:20px}
+.box{max-width:420px;margin:40px auto;background:#fff;padding:24px;border-radius:20px;box-shadow:0 8px 20px rgba(0,0,0,.08)}
+input,button{width:100%;padding:12px;margin-top:10px;border-radius:12px}
+button{background:#111;color:#fff;border:none}
+#dashboard{display:none}
+.card{background:#fff;padding:16px;border-radius:16px;margin:12px 0}
+</style></head><body>
+<div class='box' id='login'>
+<h2>S Floristry Admin</h2>
+<input id='email' placeholder='Email'>
+<input id='pass' type='password' placeholder='Password'>
+<button onclick='login()'>Login</button>
+<p>Demo: admin@floristry.in / floristry123</p>
+</div>
+
+<div id='dashboard'>
+<h2>Admin Dashboard</h2>
+<div class='card'><b>Today's Orders:</b> 0</div>
+<div class='card'><b>Total Sales:</b> ₹0</div>
+<div class='card'>
+<h3>Add Product</h3>
+<input placeholder='Product Name'>
+<input placeholder='Price'>
+<button>Save</button>
+</div>
+<button onclick='logout()'>Logout</button>
+</div>
+
+<script>
+function login(){
+ if(email.value==='admin@floristry.in'&&pass.value==='floristry123'){
+   login.style.display='none';
+   dashboard.style.display='block';
+ } else alert('Wrong login');
+}
+function logout(){dashboard.style.display='none';login.style.display='block';}
+</script>
+</body></html>
