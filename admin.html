@@ -21,6 +21,17 @@ button{background:#111;color:#fff;border:none}
 <h2>Admin Dashboard</h2>
 <div class='card'><b>Today's Orders:</b> 0</div>
 <div class='card'><b>Total Sales:</b> ₹0</div>
+ <div class="card">
+  <h3>Payment Pending</h3>
+  <p><b>Name:</b> Customer</p>
+  <p><b>Phone:</b> 9876543210</p>
+  <p><b>Product:</b> Pink Ribbon Bouquet</p>
+  <p><b>UTR:</b> 123456789012</p>
+
+  <button onclick="verify('Customer','9876543210','Pink Ribbon Bouquet')">
+    Verify Payment
+  </button>
+ </div>
 <div class='card'>
 <h3>Add Product</h3>
 <input placeholder='Product Name'>
@@ -37,6 +48,10 @@ function login(){
    dashboard.style.display='block';
  } else alert('Wrong login');
 }
-function logout(){dashboard.style.display='none';login.style.display='block';}
+function logout(){
+function verify(name, phone, product){
+  const msg = `Hi ${name}! 🌸 Your payment has been verified. Your order for ${product} has been confirmed. Thank you for choosing S Floristry!`;
+  window.open(`https://wa.me/91${phone}?text=${encodeURIComponent(msg)}`, "_blank");
+} dashboard.style.display='none';login.style.display='block';}
 </script>
 </body></html>
