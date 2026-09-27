@@ -63,24 +63,34 @@ footer{background:#111;color:#fff;text-align:center;padding:30px}
 <p>UPI: spandanadr8@oksbi</p>
 </footer>
   
-<button onclick="payNow()">Buy Now - ₹1250</button>
+</footer>
 
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<!-- Paste the QR payment section here -->
+
+<section style="padding:30px;text-align:center;background:#FFF8F6;border-radius:20px;margin:20px;">
+  <h2>Complete Your Payment</h2>
+
+  <img src="qr.jpg" alt="UPI QR" style="width:240px;border-radius:18px;">
+
+  <p><b>UPI ID:</b> spandanadr8@okhdfcbank</p>
+
+  <input id="name" placeholder="Your Name" style="width:90%;padding:12px;margin:8px;border-radius:10px;"><br>
+  <input id="phone" placeholder="Phone Number" style="width:90%;padding:12px;margin:8px;border-radius:10px;"><br>
+  <input id="utr" placeholder="Enter UTR Number" style="width:90%;padding:12px;margin:8px;border-radius:10px;"><br>
+
+  <button onclick="sendOrder()" style="padding:14px 28px;background:black;color:white;border:none;border-radius:30px;">
+    Submit Order
+  </button>
+</section>
 
 <script>
-function payNow(){
-  var options={
-    key:"rzp_test_Tgr4Ep9kQlshEr",
-    amount:125000,
-    currency:"INR",
-    name:"S Floristry Mysore",
-    description:"Pink Ribbon Bouquet",
-    handler:function(response){
-      alert("Payment Successful!");
-    }
-  };
-  var rzp=new Razorpay(options);
-  rzp.open();
+function sendOrder(){
+ let name=document.getElementById("name").value;
+ let phone=document.getElementById("phone").value;
+ let utr=document.getElementById("utr").value;
+
+ let msg=`*New Flower Order*%0AName: ${name}%0APhone: ${phone}%0AUTR: ${utr}`;
+ window.open(`https://wa.me/919902635469?text=${msg}`,"_blank");
 }
 </script>
 </body>
