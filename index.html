@@ -62,6 +62,26 @@ footer{background:#111;color:#fff;text-align:center;padding:30px}
 <p>WhatsApp: 9902635469</p>
 <p>UPI: spandanadr8@oksbi</p>
 </footer>
+  
+<button onclick="payNow()">Buy Now - ₹1250</button>
 
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+function payNow(){
+  var options={
+    key:"rzp_test_Tgr4Ep9kQlshEr",
+    amount:125000,
+    currency:"INR",
+    name:"S Floristry Mysore",
+    description:"Pink Ribbon Bouquet",
+    handler:function(response){
+      alert("Payment Successful!");
+    }
+  };
+  var rzp=new Razorpay(options);
+  rzp.open();
+}
+</script>
 </body>
 </html>
